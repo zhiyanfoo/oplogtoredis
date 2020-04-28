@@ -175,13 +175,18 @@ func createRedisClient() (redis.UniversalClient, error) {
 		return nil, errors.Wrap(err, "parsing redis url")
 	}
 
-	// Create a Redis client
-	client := redis.NewUniversalClient(&redis.UniversalOptions{
+	var clientOptions = redis.UniversalOptions{
 		Addrs:    []string{parsedRedisURL.Addr},
 		DB:       parsedRedisURL.DB,
 		Password: parsedRedisURL.Password,
-		TLSConfig: &tls.Config{},
-	})
+	}
+
+	if config.RedisTLS() {
+		clientOptions.TLSConfig = &tls.Config{}
+	}
+
+	// Create a Redis client
+	client := redis.NewUniversalClient(&clientOptions)
 
 	// Check that we have a connection
 	_, err = client.Ping().Result()
