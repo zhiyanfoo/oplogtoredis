@@ -21,7 +21,7 @@ services:
         fresh -c scripts/fresh-runner.conf
     environment:
       - OTR_MONGO_URL=mongodb://mongo/dev
-      - OTR_REDIS_URL=redis://redis
+      - OTR_REDIS_URL=redis://master.zhiyan-oplogtoredis-trial.hwnkit.use1.cache.amazonaws.com:6379
       - OTR_LOG_DEBUG=true
     ports:
       - 9000:9000
