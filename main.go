@@ -7,7 +7,7 @@ import (
 	"os"
 	"os/signal"
 	"sync"
-    // "crypto/tls"
+    "crypto/tls"
 
 	"github.com/tulip/oplogtoredis/lib/config"
 	"github.com/tulip/oplogtoredis/lib/log"
@@ -180,7 +180,7 @@ func createRedisClient() (redis.UniversalClient, error) {
 		Addrs:    []string{parsedRedisURL.Addr},
 		DB:       parsedRedisURL.DB,
 		Password: parsedRedisURL.Password,
-		// TLSConfig: &tls.Config{ InsecureSkipVerify: true,},
+		TLSConfig: &tls.Config{ InsecureSkipVerify: true,},
 	})
 
 	// Check that we have a connection
