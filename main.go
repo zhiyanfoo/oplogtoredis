@@ -7,6 +7,7 @@ import (
 	"os"
 	"os/signal"
 	"sync"
+    "crypto/tls"
 
 	"github.com/tulip/oplogtoredis/lib/config"
 	"github.com/tulip/oplogtoredis/lib/log"
