@@ -8,7 +8,7 @@ services:
       - mongo
       - redis
     command:
-      - echo "hello"
+      - ls
     environment:
       - OTR_MONGO_URL=mongodb://mongo/dev
       - OTR_REDIS_URL=redis://master.zhiyan-oplogtoredis-trial.hwnkit.use1.cache.amazonaws.com:6379
