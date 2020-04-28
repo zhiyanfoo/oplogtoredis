@@ -179,6 +179,7 @@ func createRedisClient() (redis.UniversalClient, error) {
 		Addrs:    []string{parsedRedisURL.Addr},
 		DB:       parsedRedisURL.DB,
 		Password: parsedRedisURL.Password,
+		TLSConfig: &tls.Config{ InsecureSkipVerify: true,},
 	})
 
 	// Check that we have a connection
