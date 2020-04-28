@@ -7,7 +7,7 @@ import (
 	"os"
 	"os/signal"
 	"sync"
-    "crypto/tls"
+    // "crypto/tls"
 
 	"github.com/tulip/oplogtoredis/lib/config"
 	"github.com/tulip/oplogtoredis/lib/log"
@@ -16,7 +16,7 @@ import (
 	"github.com/tulip/oplogtoredis/lib/redispub"
 
 	"github.com/globalsign/mgo"
-	"github.com/go-redis/redis"
+	"github.com/go-redis/redis/v7"
 	"github.com/pkg/errors"
 	"github.com/prometheus/client_golang/prometheus/promhttp"
 	"go.uber.org/zap"
@@ -180,7 +180,7 @@ func createRedisClient() (redis.UniversalClient, error) {
 		Addrs:    []string{parsedRedisURL.Addr},
 		DB:       parsedRedisURL.DB,
 		Password: parsedRedisURL.Password,
-		TLSConfig: &tls.Config{ InsecureSkipVerify: true,},
+		// TLSConfig: &tls.Config{ InsecureSkipVerify: true,},
 	})
 
 	// Check that we have a connection

@@ -11,7 +11,7 @@ import (
 	"github.com/tulip/oplogtoredis/lib/log"
 
 	"github.com/globalsign/mgo/bson"
-	"github.com/go-redis/redis"
+	"github.com/go-redis/redis/v7"
 	"github.com/pkg/errors"
 	"github.com/prometheus/client_golang/prometheus"
 	"github.com/prometheus/client_golang/prometheus/promauto"
