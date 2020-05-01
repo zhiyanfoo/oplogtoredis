@@ -28,12 +28,10 @@ docker-compose -f blackbox-tests/docker-compose.yml up -d
 echo "here"
 if [[ -x "$(command -v curl)" ]]; then
   echo "curl installed"
-  sleep 1
   docker-compose -f  blackbox-tests/docker-compose.yml ps
   ./scripts/wait-for-server-healthz.sh
   docker-compose -f  blackbox-tests/docker-compose.yml ps
   docker-compose -f  blackbox-tests/docker-compose.yml logs
-  exit 1
 else
   echo "curl not installed"
   sleep 1
