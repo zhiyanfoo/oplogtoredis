@@ -26,28 +26,28 @@ env:
 
 jobs:
   include:
-    - name: Lint
-      stage: test
-      before_script:
-        - curl -sfL https://install.goreleaser.com/github.com/golangci/golangci-lint.sh | sh -s -- -b $(go env GOPATH)/bin v1.17.1
-        - export PATH=$PATH:$(go env GOPATH)/bin
-        - golangci-lint --version
-      script: ./scripts/runLint.sh
+    # - name: Lint
+    #   stage: test
+    #   before_script:
+    #     - curl -sfL https://install.goreleaser.com/github.com/golangci/golangci-lint.sh | sh -s -- -b $(go env GOPATH)/bin v1.17.1
+    #     - export PATH=$PATH:$(go env GOPATH)/bin
+    #     - golangci-lint --version
+    #   script: ./scripts/runLint.sh
 
-    - name: Unit Tests
-      script: ./scripts/runUnitTests.sh
+    # - name: Unit Tests
+    #   script: ./scripts/runUnitTests.sh
 
-    - name: Acceptance
-      script: ./scripts/runIntegrationAcceptance.sh
+    # - name: Acceptance
+    #   script: ./scripts/runIntegrationAcceptance.sh
 
-    - name: Performance
-      script: ./scripts/runIntegrationPerformance.sh
+    # - name: Performance
+    #   script: ./scripts/runIntegrationPerformance.sh
 
-    - name: Fault Injection
-      script: ./scripts/runIntegrationFaultInjection.sh
+    # - name: Fault Injection
+    #   script: ./scripts/runIntegrationFaultInjection.sh
 
-    - name: Meteor
-      script: ./scripts/runIntegrationMeteor.sh
+    # - name: Meteor
+    #   script: ./scripts/runIntegrationMeteor.sh
 
     - name: Blackbox Tests
       script: ./scripts/runBlackboxTests.sh

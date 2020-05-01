@@ -31,8 +31,6 @@ services:
   mongo:
     image: mongo:4.0.5
     command: "mongod --replSet myapp --port 27017"
-    # logging:
-    #   driver: none
     volumes:
       - mongo_data:/data/db
   redis:
@@ -52,11 +50,6 @@ services:
       - ./certificates/rediscert.pem:/stunnel/private.pem:ro
     ports:
       - 6380:6380
-  mongo2:
-    image: mongo:3.6.2
-    # command: mongo "$$OTR_MONGO_URL" --eval 'rs.initiate({ _id: "myapp", members: [{ _id: 0, host: "mongo:27017"}] })'
-    # logging:
-    #   driver: none
 
 volumes:
   mongo_data:
