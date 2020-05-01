@@ -1,7 +1,7 @@
 #!/bin/sh
 
 ATTEMPT_COUNTER=0
-MAX_ATTEMPTS=7
+MAX_ATTEMPTS=15
 echo "Waiting for server to come up"
 until $(curl --output /dev/null --silent --head --fail localhost:9000/healthz); do
 	if [ ${ATTEMPT_COUNTER} -eq ${MAX_ATTEMPTS} ];then

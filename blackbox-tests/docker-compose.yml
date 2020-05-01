@@ -4,7 +4,7 @@ services:
     build:
       context: ..
       dockerfile: blackbox-tests/Dockerfile.oplogtoredis-blackbox
-    command: 
+    command:
       - /wait-for.sh
       - mongo:27017
       - '--'

@@ -21,7 +21,7 @@ docker run \
   cert-generator
 
 # BRING UP OPLOGTOREDIS
-docker-compose -f blackbox-tests/docker-compose.yml up -d
+docker-compose -f blackbox-tests/docker-compose.yml up -d --build
 
 # WAIT FOR OPLOGTOREDIS TO START
 # network=host only works on linux, so if running from a mac/windows
