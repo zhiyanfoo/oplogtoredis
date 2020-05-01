@@ -1,5 +1,4 @@
 #!/bin/bash
-set -eu
 # Currently the only test is whether oplogtoredis can connect
 # to a redis instance through TLS
 
@@ -32,6 +31,8 @@ if [[ -x "$(command -v curl)" ]]; then
   sleep 1
   docker-compose -f  blackbox-tests/docker-compose.yml ps
   ./scripts/wait-for-server-healthz.sh
+  docker-compose -f  blackbox-tests/docker-compose.yml ps
+  exit 1
 else
   echo "curl not installed"
   sleep 1
