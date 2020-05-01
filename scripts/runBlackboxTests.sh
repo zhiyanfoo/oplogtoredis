@@ -27,6 +27,7 @@ docker-compose -f blackbox-tests/docker-compose.yml up -d
 # network=host only works on linux, so if running from a mac/windows
 # please install curl
 if [[ -x "$(command -v curl)" ]]; then
+  echo "curl installed"
   ./scripts/wait-for-server-healthz.sh
 else
   docker build -f blackbox-tests/Dockerfile.curl . -t wait-for-server-healthz
