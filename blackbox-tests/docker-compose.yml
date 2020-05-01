@@ -15,7 +15,6 @@ services:
       - -c
       - |
         update-ca-certificates
-        mongo "$$OTR_MONGO_URL" --eval 'rs.initiate({ _id: "myapp", members: [{ _id: 0, host: "mongo:27017"}] })'
         oplogtoredis
     environment:
       - OTR_MONGO_URL=mongodb://mongo/dev
@@ -30,7 +29,7 @@ services:
       - ./certificates/ca.crt:/usr/local/share/ca-certificates/ca.crt:ro
   mongo:
     image: mongo:3.6.2
-    command: "mongod --replSet myapp --port 27017"
+    command: "mongod --port 27017"
     logging:
       driver: none
     volumes:
