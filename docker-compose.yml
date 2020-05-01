@@ -31,8 +31,6 @@ services:
   mongo:
     image: mongo:3.6.2
     command: "mongod --replSet myapp --port 27017"
-    logging:
-      driver: none
     volumes:
       - './.data/mongo-data:/data/db'
   redis:
