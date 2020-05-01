@@ -26,10 +26,16 @@ docker-compose -f blackbox-tests/docker-compose.yml up -d
 # WAIT FOR OPLOGTOREDIS TO START
 # network=host only works on linux, so if running from a mac/windows
 # please install curl
+echo "here"
 if [[ -x "$(command -v curl)" ]]; then
   echo "curl installed"
+  sleep 1
+  docker-compose -f  blackbox-tests/docker-compose.yml ps
   ./scripts/wait-for-server-healthz.sh
 else
+  echo "curl not installed"
+  sleep 1
+  docker-compose -f  blackbox-tests/docker-compose.yml ps
   docker build -f blackbox-tests/Dockerfile.curl . -t wait-for-server-healthz
   docker run --network="host" wait-for-server-healthz
 fi
