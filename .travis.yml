@@ -48,6 +48,3 @@ jobs:
 
     - name: Meteor
       script: ./scripts/runIntegrationMeteor.sh
-
-    - name: Blackbox Tests
-      script: ./scripts/runBlackboxTests.sh
